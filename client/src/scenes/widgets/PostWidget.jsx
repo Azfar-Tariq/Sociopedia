@@ -3,14 +3,14 @@ import {
   FavoriteBorderOutlined,
   FavoriteOutlined,
   ShareOutlined,
-} from "@mui/icons-material";
-import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
-import FlexBetween from "components/FlexBetween";
-import Friend from "components/Friend";
-import WidgetWrapper from "components/WidgetWrapper";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setPost } from "state";
+} from '@mui/icons-material';
+import { Box, Divider, IconButton, Typography, useTheme } from '@mui/material';
+import FlexBetween from 'components/FlexBetween';
+import Friend from 'components/Friend';
+import WidgetWrapper from 'components/WidgetWrapper';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPost } from 'state';
 
 const PostWidget = ({
   postId,
@@ -36,10 +36,10 @@ const PostWidget = ({
 
   const patchLike = async () => {
     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ userId: loggedInUserId }),
     });
@@ -55,7 +55,7 @@ const PostWidget = ({
         subtitle={location}
         userPicturePath={userPicturePath}
       />
-      <Typography color={main} sx={{ mt: "1rem" }}>
+      <Typography color={main} sx={{ mt: '1rem' }}>
         {description}
       </Typography>
       {picturePath && (
@@ -63,7 +63,7 @@ const PostWidget = ({
           width="100%"
           height="auto"
           alt="post"
-          style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
+          style={{ borderRadius: '0.75rem', marginTop: '0.75rem' }}
           src={`http://localhost:3001/assets/${picturePath}`}
         />
       )}
@@ -97,7 +97,7 @@ const PostWidget = ({
           {comments.map((comment, i) => (
             <Box key={`${name}-${i}`}>
               <Divider />
-              <Typography sx={{ color: main, m: "0.5rem 0", pl: "1rem" }}>
+              <Typography sx={{ color: main, m: '0.5rem 0', pl: '1rem' }}>
                 {comment}
               </Typography>
             </Box>
